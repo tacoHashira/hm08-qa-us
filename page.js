@@ -4,13 +4,24 @@ module.exports = {
     toField: '#to',
     phoneNumberField: '#phone',
     codeField: '#code',
+    cardNumberField: '#card',
+    cvvField: '#cvv',
     // Buttons
     callATaxiButton: 'button=Call a taxi',
     phoneNumberButton: '//div[starts-with(text(), "Phone number")]',
     nextButton: 'button=Next',
     confirmButton: 'button=Confirm',
+    supportivePlanButton: 'button=Supportive plan',
+    paymentMethodButton: 'button=Payment method',
+    addCardButton: 'button=Add card',
+    orderRequirementsButton: 'button=Order requirements',
+    blanketAndHandkerchiefsButton: 'button=Blanket and handkerchiefs',
+    iceCreamBucketButton: 'button=Ice cream bucket',
+    closeButton: 'button=Close',
+    orderButton: 'button=Order',
     // Modals
     phoneNumberModal: '.modal',
+    carSearchModal: '.modal',
     // Functions
     fillAddresses: async function(from, to) {
         const fromField = await $(this.fromField);
@@ -48,4 +59,8 @@ module.exports = {
         await codeField.setValue(code)
         await $(this.confirmButton).click()
     },
+    writeDriverMessage: async function(driverMessage) {
+        const driverMessage = await $(page.driverMessage);
+        await driverMessage.click();
+    }
 };
